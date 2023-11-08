@@ -21,7 +21,7 @@
    
     d) for each successor
         i) if successor is the goal, stop search
-        
+        ```
         ii) else, compute both g and h for successor
           successor.g = q.g + distance between 
                               successor and q
@@ -42,105 +42,26 @@
             a lower f than successor, skip this successor
             otherwise, add  the node to the open list
      end (for loop)
-  
+    ```  
     e) push q on the closed list
     end (while loop)
-## Program:
-```c
-from collections import defaultdict
-H_dist ={}
-def aStarAlgo(start_node, stop_node):
-    open_set = set(start_node)
-    closed_set = set()
-    g = {}              
-    parents = {} 
-    g[start_node] = 0
-    parents[start_node] = start_node
-    while len(open_set) > 0:
-        n = None
-        for v in open_set:
-            if n == None or g[v] + heuristic(v) < g[n] + heuristic(n):
-                n = v
-        if n == stop_node or Graph_nodes[n] == None:
-            pass
-        else:
-            for (m, weight) in get_neighbors(n):
-                if m not in open_set and m not in closed_set:
-                    open_set.add(m)
-                    parents[m] = n
-                    g[m] = g[n] + weight
-                else:
-                    if g[m] > g[n] + weight:
-                        g[m] = g[n] + weight
-                        parents[m] = n
-                        if m in closed_set:
-                            closed_set.remove(m)
-                            open_set.add(m)
-        if n == None:
-            print('Path does not exist!')
-            return None
-        if n == stop_node:
-            path = []
-            while parents[n] != n:
-                path.append(n)
-                n = parents[n]
-            path.append(start_node)
-            path.reverse()
-            print('Path found: {}'.format(path))
-            return path
-        open_set.remove(n)
-        closed_set.add(n)
-    print('Path does not exist!')
-    return None
-def get_neighbors(v):
-    if v in Graph_nodes:
-        return Graph_nodes[v]
-    else:
-        return None
-def heuristic(n):
-    return H_dist[n]
-graph = defaultdict(list)
-n,e = map(int,input().split())
-for i in range(e):
-    u,v,cost = map(str,input().split())
-    t=(v,float(cost))
-    graph[u].append(t)
-    t1=(u,float(cost))
-    graph[v].append(t1)
-for i in range(n):
-    node,h=map(str,input().split())
-    H_dist[node]=float(h)
-print(H_dist)
-
    
-Graph_nodes=graph
-print(graph)
-aStarAlgo('S', 'G')
-```
 <hr>
 <h2>Sample Graph I</h2>
 <hr>
 
-![277152712-acbb09cb-ed39-48e5-a59b-2f8d61b978a3](https://github.com/charumathiramesh/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/120204455/4bafc763-69c8-4390-b475-8393fad03f30)
+![image](https://github.com/Saibandhavi75/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/94208895/d4679838-4189-4a13-a0d0-f5e91867b064)
 
-<hr>
-<h2>Sample Input</h2>
-<hr>
-6 6 <br>
-A B 2 <br>
-B C 1 <br>
-A E 3 <br>
-B G 9 <br>
-E D 6 <br>
-D G 1 <br>
-A 11 <br>
-B 6 <br>
-C 99 <br>
-E 7 <br>
-D 1 <br>
-G 0 <br>
-<hr>
-<h2>Sample Output</h2>
-Path found: ['A', 'E', 'D', 'G']
-<h3>Result:</h3>
-Thus,a Graph was constructed and implementation of A* Algorithm for the same graph was done successfully.
+# Input & Output 1:
+![image](https://github.com/Saibandhavi75/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/94208895/274755ef-4695-49e8-8cf1-1a0d28b8685b)
+
+
+# Sample Graph II
+
+![image](https://github.com/Saibandhavi75/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/94208895/e890b350-3953-4ec9-a938-241605e84bfe)
+
+# Input & Output 2:
+![image](https://github.com/Saibandhavi75/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/94208895/37b9fe97-9126-4a07-b370-1ae43cd6c4f6)
+
+# Result;
+Thus, a Graph was constructed, and the implementation of the A* algorithm for the same graph was executed successfully. The algorithm found the shortest path from the start node to the stop node, demonstrating its effectiveness in solving pathfinding problems.
