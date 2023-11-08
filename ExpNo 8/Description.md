@@ -47,7 +47,8 @@ while(player):
             row+=1
         else:
             print("move denied")
-        
+ ```
+```       
         print("current location: ",wumpus[row][column],"\n")
     elif choice == "l" :
         if column!=0:
@@ -61,7 +62,8 @@ while(player):
             column+=1
         else:
             print("move denied")
-        
+```
+```        
         print("current location: ",wumpus[row][column],"\n")
     else:
         print("move denied")
@@ -78,6 +80,8 @@ while(player):
                     wumpus[row-1][column] = "Save"
                     wumpus[1][0]="Save"
                     wumpus[3][0]="Save"
+```
+```
                 else:
                     print("arrow wasted...")
                     score-=10
@@ -106,6 +110,8 @@ while(player):
                     print("arrow wasted...")
                     score-=10
                     print("score: ",score)
+```
+```
             elif arrow_throw == "r":
                 if wumpus[row][column+1] == "WUMPUS":
                     print("wumpus killed!")
@@ -119,7 +125,8 @@ while(player):
                     score-=10
                     print("score: ",score)
                 
-            
+```
+```            
             arrow=False
     if wumpus[row][column] == "WUMPUS" :
         score-=1000
