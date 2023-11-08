@@ -43,7 +43,8 @@ Begin<br>
       val1 := val1 + (m * nodeList[j].value)<br>
       m := m * 10<br>
    done<br>
-
+```
+```
    m := 1<br>
    for each letter i from right to left of word2, do<br>
       ch := word2[i]<br>
@@ -51,7 +52,8 @@ Begin<br>
          if nodeList[j].letter = ch, then<br>
             break<br>
       done<br>
-
+```
+```
       val2 := val2 + (m * nodeList[j].value)
       m := m * 10
    done<br>
@@ -86,7 +88,8 @@ def solve_cryptarithmetic():
         # Check for leading zeros
         if S == 0 or M == 0:
             continue
-
+```
+```
         # Check the equation constraints
         SEND = 1000 * S + 100 * E + 10 * N + D
         MORE = 1000 * M + 100 * O + 10 * R + E
